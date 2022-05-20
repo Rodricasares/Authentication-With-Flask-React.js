@@ -75,7 +75,6 @@ def add_user():
     if not name or not email or not password:
         return jsonify({"message": "Es necesario completar los campos (Nombre, email y password)", 'color': 'alert-danger', 'ok': False}), 401 
 
-    user = User(img=img, name=name, last_name=last_name, email=email, password=password, is_admin=False, role_id=2)
     db.session.add(user)
     db.session.commit()
 
