@@ -42,7 +42,7 @@ export const Login = () => {
             </div>
             <button
               type="button"
-              className="btn btn-primary"
+              className="btn btn-danger"
               onClick={() => {
                 fetch(process.env.BACKEND_URL + "/api/login", {
                   method: "POST",

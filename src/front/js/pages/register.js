@@ -115,7 +115,7 @@ export const Register = () => {
 
               <button
                 type="button"
-                className="btn btn-primary"
+                className="btn btn-danger"
                 onClick={handleSubmit}
               >
                 Crear usuario
