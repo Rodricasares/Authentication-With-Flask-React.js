@@ -56,7 +56,7 @@ export const Login = () => {
                     if (data.token) {
                       localStorage.setItem("token", data.token);
                       localStorage.setItem("name", data.name);
-                      history.push("/");
+                      history.push("/protected");
                     } else {
                       alert("Complete los campos obligatorios");
                     }
