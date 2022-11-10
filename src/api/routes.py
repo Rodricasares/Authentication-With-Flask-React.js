@@ -74,14 +74,14 @@ def add_user():
 
     if not name or not email or not password:
         return jsonify({"message": "Es necesario completar los campos (Nombre, email y password)", 'color': 'alert-danger', 'ok': False}), 401 
-
-    db.session.add(user)
-    db.session.commit()
-
-    if not user:
+    try:
+        db.session.add(user)
+        db.session.commit()
+    except:
         return jsonify({"message": "Error al crear el usuario", 'color': 'alert-danger', 'ok': False}), 401
         
     return jsonify({"message": "Usuario creado", 'color': 'alert-success', 'ok': True}), 200
+    
     db.session.add(user)
     db.session.commit()
     token = create_access_token(identity=user.id)
