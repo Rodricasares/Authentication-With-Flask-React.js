@@ -16,6 +16,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       ],
 
       roles: [],
+      users: [],
     },
     actions: {
       // Use getActions to call a function within a fuction
@@ -37,10 +38,14 @@ const getState = ({ getStore, getActions, setStore }) => {
         // fetching data from the backend
         fetch(process.env.BACKEND_URL + "/api/hello")
           .then((resp) => resp.json())
-          .then((data) => setStore({ message: data.message }))
-          .catch((error) =>
-            console.log("Error loading message from backend", error)
-          );
+          .then((data) => setStore({ message: data.message }));
+      },
+
+      loadUser: () => {
+        fetch(process.env.BACKEND_URL + "/api/user")
+          .then((resp) => resp.json())
+          .then((data) => setStore({ users: data }))
+          .catch((error) => console.log("Error loading users list", error));
       },
     },
   };
